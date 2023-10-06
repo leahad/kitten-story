@@ -1,0 +1,20 @@
+<app-create-kitten (kittens)="getKitten($event)"></app-create-kitten>
+
+<h1 class="text-center mt-2">Kittens to adopt</h1>
+<div class="d-flex justify-content-center mt-4">
+  <div *ngIf="kittenList">
+    <div *ngFor="let kitten of kittenList">
+      <div class="card mt-2" style="width: 18rem;">
+        <img [src]="kitten.picture" class="card-img-top" alt="kitten.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ kitten.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{ kitten.breed }}</h6>
+          <p class="card-text">{{ kitten.birthdate }}</p>
+          <a (click)="giveMeKitten(kitten)" class="btn btn-primary">Adopt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-user-kitten [userKittens]="userKittens"></app-user-kitten>
